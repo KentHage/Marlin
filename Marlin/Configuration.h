@@ -698,9 +698,9 @@
 
     // ET4 Autotune PID results from: M303 E0 S205 C8
     #define DEFAULT_Kp 23.68
-    #define DEFAULT_Ki 2.8
+    #define DEFAULT_Ki 3
     #define DEFAULT_Kd 53.51
-    // Save values with: M301 P23.68 I2.8 D53.51
+    // Save values with: M301 P23.68 I3 D53.51
   #endif
 #else
   #define BANG_MAX 255    // Limit hotend current while in bang-bang mode; 255=full current
