@@ -148,11 +148,18 @@ void draw_heater_status(uint16_t x, uint16_t y, const int8_t heater) {
   uint16_t color = currentTemperature < 0 ? COLOR_INACTIVE : COLOR_COLD;
 
   if (heater >= 0) { // HotEnd
-    if (currentTemperature >= 50) color = COLOR_HOTEND;
+    if (currentTemperature > 99)
+      color = COLOR_HOTEND;
+    else if (currentTemperature > 49)
+      color = COLOR_ORANGE2;
+
   }
   #if HAS_HEATED_BED
     else if (heater == H_BED) {
-      if (currentTemperature >= 50) color = COLOR_HEATED_BED;
+      if (currentTemperature > 59)
+        color = COLOR_HEATED_BED;
+      else if (currentTemperature > 39)
+        color = COLOR_ORANGE2;
       image = targetTemperature > 0 ? imgBedHeated : imgBed;
     }
   #endif
